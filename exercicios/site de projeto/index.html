@@ -44,21 +44,22 @@ header h1 {
 
 nav {
   margin-top: 10px;
-  padding:10px;
+  padding:5px;
 }
 
 nav a {
   margin: 0 15px;
-  padding:10px;
+  padding:5px;
   color: #f1f1f1;
   text-decoration: none;
   font-weight: bold;
 }
 
-nav >a:hover{
+nav a:hover{
     background-color:aliceblue;
-    color:#e6b800;
-
+    color:#012840;
+    border-radius: 5px;
+}
 section {
   padding: 40px 20px;
   max-width: 1000px;
@@ -96,6 +97,10 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
 }
+.galeria-grid img:hover{
+  transform: scale(1.05);
+  transition: 0.3s;
+}
 
 .produto {
   background-color: #012840;
@@ -128,6 +133,10 @@ h2 {
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
+}
+.produto:hover{
+  transform: scale(1.05);
+  transition: 0.3s;
 }
 
 .produto button:hover {
