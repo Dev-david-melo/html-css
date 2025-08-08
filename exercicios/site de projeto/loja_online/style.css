@@ -3,3 +3,126 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+    --primary-color: #FF4111;
+    --secondary-color: #2C3E50;
+    --accent-color: #3498DB;
+    --text-color: #2C3E50;
+    --light-gray: #F8F9FA;
+    --border-color: #E9ECEF;
+    --white-color: #FFFFFF;
+    --hover-btn: rgba(255,255,255,0.1);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    line-height: 1.6;
+
+}
+header {
+    background-color: var(--white-color);
+    position: sticky;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+.logo i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+.logo h1 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.cabeçalho {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 2rem;
+    display: flex;
+    align-items: center;
+    background-color: var(--light-gray);
+    border-radius: 1.5rem;
+    padding: 0.5rem 1rem;
+
+}
+.cabeçalho input {
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+.cabeçalho i {
+    color: var(--primary-color);
+  
+}
+.categoria-produtos {
+    background-color: var(--secondary-color);
+}
+.categoria-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+.categoria-btn {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border: none;
+  border: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background: none;
+  color: var(--white-color);
+
+
+}
+.categoria-btn:hover{
+    background-color: var(--hover-btn);
+    border-radius: 1.5rem;
+}
+.categoria-btn i {
+    font-size: 1.2rem;
+}
+.categoria-btn.ativo{
+    background-color: var(--primary-color);
+    border-radius: 1.5rem;
+}
+.banner {
+   background: #9b322a;
+background: linear-gradient(90deg,rgba(155, 50, 42, 1) 0%, rgba(217, 40, 30, 1) 2%, rgba(0, 119, 255, 1) 100%, rgba(237, 221, 83, 1) 100%);
+color: var(--white-color);
+text-align: center;
+padding: 3rem 2rem;
+}
+.banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.banner p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 2rem;
+    
+}
