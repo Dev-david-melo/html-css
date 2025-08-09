@@ -1,4 +1,5 @@
 let textoPesquisa = "";
+let categoriaAtual = "all";  
 let produtos = [
     {
         id: 1,
@@ -88,15 +89,23 @@ let produtos = [
 
 let containerProdutos = document.querySelector(".produtos-cont")
 let input = document.querySelector(".cabeçalho-input");
+let botoes= document.querySelectorAll(".categoria-btn");
 
 function mostrarProdutos() {
     let hProduto = ""; 
 
     let produtosFiltrados = produtos.filter(prd => {
 
+
+        let passouCategoria = (categoriaAtual === "all" || prd.categoria === categoriaAtual);
+
+
+
+
+
         let passouPesquisa = prd.nome.toLowerCase().includes(textoPesquisa.toLowerCase())
 
-        return passouPesquisa;
+        return passouPesquisa && passouCategoria;
     })
     produtosFiltrados.forEach(prd => {
       
@@ -120,5 +129,29 @@ function pesquisar(){
     mostrarProdutos();
 
 }
-window.onload = mostrarProdutos;
-input.addEventListener("input", pesquisar);
+function trocarCategoria(categoria) {
+    categoriaAtual = categoria
+    botoes.forEach(botao => {
+        botao.classList.remove("ativo")
+        if (botao.getAttribute("data-category") === categoria) {
+            botao.classList.add("ativo")
+        }
+
+    })
+
+    mostrarProdutos()
+
+}
+window.addEventListener("DOMContentLoaded", () => {
+    mostrarProdutos()
+
+    input.addEventListener("input", pesquisar);
+
+    botoes.forEach(botao => {
+    botao.addEventListener("click", () => {
+        let categoria = botao.getAttribute("data-category");
+        trocarCategoria(categoria);
+    });
+});
+
+});
