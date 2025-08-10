@@ -1,5 +1,5 @@
 let textoPesquisa = "";
-let categoriaAtual = "all";  
+let categoriaAtual = "all";
 let produtos = [
     {
         id: 1,
@@ -56,7 +56,7 @@ let produtos = [
         nome: "Teclado Mecânico",
         categoria: "accessories",
         preco: 499,
-        precoOriginal: null,
+        precoOriginal: 600,
         desconto: null,
         imagem: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400",
         descricao: "Teclado mecânico RGB para gamers"
@@ -78,7 +78,7 @@ let produtos = [
         nome: "Dell XPS 13",
         categoria: "laptops",
         preco: 7999,
-        precoOriginal: null,
+        precoOriginal: 8999,
         desconto: null,
         imagem: "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=400",
         descricao: "Notebook Windows premium"
@@ -89,10 +89,10 @@ let produtos = [
 
 let containerProdutos = document.querySelector(".produtos-cont")
 let input = document.querySelector(".cabeçalho-input");
-let botoes= document.querySelectorAll(".categoria-btn");
+let botoes = document.querySelectorAll(".categoria-btn");
 
 function mostrarProdutos() {
-    let hProduto = ""; 
+    let hProduto = "";
 
     let produtosFiltrados = produtos.filter(prd => {
 
@@ -108,22 +108,24 @@ function mostrarProdutos() {
         return passouPesquisa && passouCategoria;
     })
     produtosFiltrados.forEach(prd => {
-      
+
         hProduto = hProduto + `
             <div class="produto-card">
                 <img  class="produto-img" src="${prd.imagem}" alt="${prd.nome}">
                 <div class="produto-info">
                    <h3 class="produto-nome">${prd.nome}</h3>
                    <p class="produto-descricao">${prd.descricao}</p>
-                   <p class="produto-price">${prd.preco}</p>
+                   <p class="produto-price">R$${prd.preco}</p>
+                   <p class="produto-preco-original"><s>R$${prd.precoOriginal}</s></p>
+                   <button class="produto-carrinho"><i class="fa-solid fa-cart-plus"></i></button>
                    <button class="produto-botao">Ver Detalhes</button>
                 </div>
             </div>
          `
     })
     containerProdutos.innerHTML = hProduto;
-}   
-function pesquisar(){
+}
+function pesquisar() {
     textoPesquisa = input.value
 
     mostrarProdutos();
@@ -148,10 +150,10 @@ window.addEventListener("DOMContentLoaded", () => {
     input.addEventListener("input", pesquisar);
 
     botoes.forEach(botao => {
-    botao.addEventListener("click", () => {
-        let categoria = botao.getAttribute("data-category");
-        trocarCategoria(categoria);
+        botao.addEventListener("click", () => {
+            let categoria = botao.getAttribute("data-category");
+            trocarCategoria(categoria);
+        });
     });
-});
 
 });
